@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    </head>
+    <body>
+           <div class="ui animated button" tabindex="0">
+  <div class="visible content">Next</div>
+  <div class="hidden content">
+    <i class="right arrow icon"></i>
+  </div>
+</div>
+<div class="ui vertical animated button" tabindex="0">
+  <div class="hidden content">Shop</div>
+  <div class="visible content">
+    <i class="shop icon"></i>
+  </div>
+</div>
+<div class="ui animated fade button" tabindex="0">
+  <div class="visible content">Sign-up for a Pro account</div>
+  <div class="hidden content">
+    $12.99 a month
+  </div>
+</div>                                                    <div class="ui placeholder segment">
+  <div class="ui two column very relaxed stackable grid">
+    <div class="column">
+      <div class="ui form">
+        <div class="field">
+          <label>Username</label>
+          <div class="ui left icon input">
+            <input type="text" placeholder="Username">
+            <i class="user icon"></i>
+          </div>
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <div class="ui left icon input">
+            <input type="password">
+            <i class="lock icon"></i>
+          </div>
+        </div>
+        <div class="ui blue submit button">Login</div>
+      </div>
+    </div>
+    <div class="middle aligned column">
+      <div class="ui big button">
+        <i class="signup icon"></i>
+        Sign Up
+      </div>
+    </div>
+  </div>
+  <div class="ui vertical divider">
+    Or
+  </div>
+</div>                                                                  
+    <button class="ui green basic button">Green</button>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>   
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>   
+
+<script>
+   // firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+  // Handle Errors here.
+//  var errorCode = error.code;
+//  var errorMessage = error.message;
+//  // ...
+//});
+    
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCXhPEF8OTZCiU-I5g_C63xo8tAooWnYJ0",
+    authDomain: "website-resume-c8412.firebaseapp.com",
+    databaseURL: "https://website-resume-c8412.firebaseio.com",
+    projectId: "website-resume-c8412",
+    storageBucket: "website-resume-c8412.appspot.com",
+    messagingSenderId: "1095565816028",
+    appId: "1:1095565816028:web:8d18df43d6adc8aa7a8419",
+    measurementId: "G-700F8FETDB"
+  };
+    firebase.initializeApp(firebaseConfig);
+  //firebase.analytics();
+  // Initialize Firebase
+    //var defaultProject = firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    
+    db.collection("educations").get().then(function(snapshot){
+        snapshot.forEach(function(doc){
+                         console.log(doc.data());
+                         })
+    });
+    
+    /*
+    //adding into organizations
+    db.collection("organizations").add({
+        name: "lamb",
+        position: "docupub",
+        year_end: 2019,
+        year_start: 2018
+    })
+  
+    .then(function(docRef) {
+        console.log("Item added with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+        
+    });
+//  firebase.analytics();
+    
+    
+    //deleting organizations
+    db.collection("organizations").doc("C0Ht0iDI7ezFQMN6PCzx").delete().then(function(){
+        console.log("Item deleted");
+    }).catch(function(err){                     
+        console.log("error in deleting item: " + err);
+    }); */
+    
+    
+     
+   
+       var email = 'courtney.ngo@dlsu.edu.ph';
+    var password = 'abcd1234'; 
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function(user){
+        console.log("user signed in");
+        
+        var user = firebase.auth().currentUser;
+        if(user != null){
+            console.log(user.email)
+            
+        }
+    }).catch(function(err){
+        if(err.code == "auth/wrong-password"){
+            alert("wrong password")
+        }
+            else{
+                alert(err.message);
+            }
+    });
+    
+</script>
+        
+        <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="semantic/semantic.min.js"></script>
+</body>
+</html>
