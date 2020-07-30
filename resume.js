@@ -5,7 +5,7 @@ var sticky = navbar.offsetTop;
 
 function myFunction() {
   if (window.pageYOffset >= sticky) {
-     navbar.style.backgroundColor="black"
+     navbar.style.backgroundColor="#dbdbdb"
     navbar.classList.add("sticky")
    
   } else {
