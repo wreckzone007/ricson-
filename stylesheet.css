@@ -20,7 +20,7 @@ body {
 .header {
   background-color: #f1f1f1;
   padding-top: 30px;
-  /* text-align: center; */
+  
   background-image: url(img/bg2.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -37,9 +37,7 @@ body {
   text-transform: uppercase;
 }
 
-#navbar #profile{
-  text-size: 
-}
+
 #navbar a {
   /* float: center; */
   display: inline;
@@ -93,9 +91,19 @@ body {
 .section{
   height: auto;
   width: 100%;
-text-align: center;
-  /* align-content: center; */
+  /* text-align: center; */
+  justify-content: center;
+  display: grid;
+  grid-template-rows: auto auto;
   
+  
+}
+
+.sectionContent{
+  width: 80%;
+  align-self:center;
+  
+  margin: 0px auto;
 }
 
 .container{
@@ -115,7 +123,7 @@ text-align: center;
 }
 #aboutMe h3{
   position: relative;
-  left: 100px;
+  left: -200px;
   grid-area: 1/1/2/2;
   font-size: 4em;
   width: 500px;
@@ -123,6 +131,8 @@ text-align: center;
   font-family: 'Recursive', sans-serif;
 }
 #aboutMe p{
+  text-align: center;
+  margin-left: -300px;
   grid-area: 2/1/3/2;
 }
 #aboutMe img{
@@ -136,10 +146,11 @@ text-align: center;
 }
 .socMeds{
   /* height: 40px; */
-  padding-left: 350px;
+  padding-left: 330px;
   margin-top: -50px;
 }
 .socMeds i{
+  padding: 0px 50px;
   color: #313131;
   transition: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition-delay: 175ms;
@@ -175,13 +186,20 @@ text-align: center;
   font-family: 'Recursive', sans-serif;
   width: 500px;
   font-size: 3em;
-  text-align: center;
+  margin: 0px auto;
+  
   
 }
 #education{
+  padding-top: 1000px;
   background-color: white;
   padding-top: 45px;
+ 
   
+}
+
+.schoolContainer{
+  grid-row: 2;
 }
 .school{
   display: grid;
@@ -202,6 +220,7 @@ text-align: center;
 }
 
 .section .sectionTitle{
+  grid-row: 1;
   text-align: center;
   text-transform: capitalize;
   padding-bottom: 30px;
