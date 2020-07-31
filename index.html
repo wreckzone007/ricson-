@@ -13,12 +13,13 @@
 
 <div class="header">
   <div id="navbar">
-    <img src="img/rvlogo.ico">
+    <img id="myLogo" src="img/rvlogo.ico" onclick="rotateImage();">
     <a id="profile" href="#aboutMe">Ricson Vergara</a>
     <a href="#aboutMe">About me</a>
     <a href="#education">Education</a>
     <a href="#organizations">Organizations</a>
-    <a href="javascript:void(0)">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
     <a href="javascript:void(0)">Contact Me</a>
   </div>
   <div class="section container" id="aboutMe">
@@ -47,73 +48,170 @@
 <div class="section" id="education">
   <div class="sectionContent">
   <h3 class="sectionTitle">Education</h3>
-  <div class="schoolContainer">
+  <div class="sectionContainer">
     <div class="school">
-      <img src="img/munsci.jpg" alt="muntinlupa science high school logo">
+      <img src="img/dlsu.png" alt="de la salle university logo">
       <div class="schoolInfo">
-        <span class="school">Muntinlupa Science High School </span>
-        <span id="course">Science Technology Engineering Mathematics (STEM)</span>
-        <span class="year">2012-2018</span> <br>
-              <p class="awards">Batch Overall Rank 4 <br>
-              With High Honors <br>
-              Academic Performance in Science and Filipino  <br>
-            </p>
-      </div>
-    </div>
-
-
-    <div class="school">
-      <img src="img/dlsu.svg" alt="de la salle university logo">
-      <div class="schoolInfo">
-        <span id="schoolName">Muntinlupa Science High School </span>
+        <span id="schoolName">De La Salle University</span>
         <span id="course">Bachelor of Science in Information Technology</span>
-        <span class="year" id="schoolYear">2018-Present</span> <br>
-              <p class="awards">Consistent First Dean's Lister Awardee <br>
+        <span id="schoolYear">2018-Present</span> 
+              <p class="awards">Consistent First Dean's Lister Awardee 
               </p>
       </div>
     </div>
-  </div>
-  </div>
-      
-</div>
-<!-- <div class="container-fluid">
-  <div class="row">
-    <div class="container">
-      
-      <div class="row"> -->
-        
-        <div class="section" id="organizations">
-          <div><h3 class="sectionTitle">Organizations</h3>  </div>     
-         
-         <div class="org">
-           <img src="img/lscs.png" alt="lamb logo">
-         </div>
-         
 
-<div class="ui segment">
-  <div class="ui two column very relaxed grid">
-    <div class="column">
-      <p><img src="img/lscs.png" alt="lamb logo"></p>
-      <p></p>
-      <p></p>
-      <p></p>
-    </div>
-    <div class="column">
-      <p><img src="img/lamb.png" alt="lamb logo"></p>
-      <p></p>
-      <p></p>
-      <p></p>
+    <div class="school">
+      <img src="img/munsci.jpg" alt="muntinlupa science high school logo">
+      <div class="schoolInfo">
+        <span id="schoolName">Muntinlupa Science High School </span>
+        <span id="course">Science Technology Engineering Mathematics (STEM)</span>
+        <span id="schoolYear">2012-2018</span> 
+              <p class="awards">Batch Overall Rank 4 <br>
+                With High Honors <br>
+                Academic Performance in Science and Filipino  <br>
+              </p>
+        </div>
+      </div>
+
+
     </div>
   </div>
-  <div class="ui vertical divider">
-    
+      
+</div>
+        
+<div class="section" id="organizations">
+  <div class="sectionContent">
+    <h3 class="sectionTitle">Organizations</h3>       
+    <div class="sectionContainer">
+      <div class="org"> 
+       <img src="img/lscs.png" alt="lscs logo">
+       <div class="orgInfo">
+        <span id="orgName">La Salle Computer Society </span>
+        <span id="position">Human Resource Development Associate Vice President</span>
+        <span id="schoolYear">2019-2020</span> 
+              <p id="description">Spearheded different projects and events that will give opportunities to
+                 all members to grow holisitcally. In charge of giving the needs of members and officers 
+                in and outside the classroom. </p>
+        </div>
+      </div>
+      <div class="org"> 
+        <img src="img/lamb.png" alt="lamb logo">
+        <div class="orgInfo">
+         <span id="orgName">Lasallian Ambassadors</span>
+         <span id="position">Publicity and Documentation Officer</span>
+         <span id="schoolYear">2018-20200</span> 
+               <p id="description">Actively Contributed in making the branding and publicity materials for
+                 annual frosh welcoming of DLSU, Lasallian Personal Effectiveness Program (LPEP). Been an  orienter and photographer of the froshies in their welcoming event in the university. </p>
+         </div>
+       </div>
+    </div>   
   </div>
 </div>
+
+
+<div class="section" id="skills">
+  <div class="sectionContent">
+    <h3 class="sectionTitle">Skills</h3>       
+    <div class="sectionContainer">
+      <div class="skillsGrid">
+        <div class="technicalSkills">
+          <h2 class="titles">Technical Skills</h2>
+            <p id="description">Proficient in productivity tools including
+              Microsoft Office and Google Programs. I'm experienced in network architecture and system administration and has satisfactory skills in
+              programming languages such as Java and C. Introductory Skills in Web Development </p>
+              <span id="skillName">Network Architecture</span>
+              <div class="progress" id="Network Architecture">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 92%">92%</div>
+              </div>
+              <br>
+              <span id="skillName">Network Administration</span>
+              <div class="progress" id="System Administration">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 83%">83%</div>
+              </div>
+              <br>
+              <span id="skillName">Java</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated  bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 79%">79%</div>
+              </div>
+              <br>
+              <span id="skillName">Web Development</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated  bg-danger" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 57%">57%</div>
+              </div>
+              <br>
         </div>
-      <!-- </div>
+        <div class="hobbies">
+          <h2 class="titles">Hobbies</h2>
+          <p id="description">I'm interested in digital arts and photomanipulation. I love mystery and scifi movies and series.
+            I like going to different places and adventures. My hobbies are gaming, playing sports, and editing.  </p>
+            <div class="hobbyGroup">
+              <div class="hobby">
+              <div class="hobbiesIcons" id="teamwork">
+                <i class="users icon huge"></i>
+              </div>
+              <span class="hobbiesName">Teamwork</span>
+            </div>
+            <div class="hobby">
+              <div class="hobbiesIcons" id="sports">
+                <i class="basketball ball icon huge"></i>
+              </div>
+              <span class="hobbiesName">Sports</span>
+            </div>
+            <div class="hobby">
+              <div class="hobbiesIcons" id="gaming">
+                <i class="playstation icon huge"></i>
+              </div>
+              <span class="hobbiesName">Gaming</span>
+            </div>
+
+            <div class="hobby">
+              <div class="hobbiesIcons" id="travel">
+                <i class="plane icon huge"></i>
+              </div>
+              <span class="hobbiesName">Travel</span>
+            </div>
+          </div>
+            
+        </div>
+      </div>
+      
+    </div>   
+  </div>
+</div>
+
+<div class="section" id="projects">
+  <div class="sectionContent">
+    <h3 class="sectionTitle">Projects</h3>       
+    <div class="sectionContainer">
+      <div class="projectGrid">
+        <div class="project">
+          <img src="img/myEmpire2.png" alt="my empire">
+          <span id="projectName">My Empire</span>
+          <span class="description" id="projectDescription">
+            A monopoly-like java project
+          </span>
+        </div>
+        <div class="project">
+          <img src="img/itnet.png" alt="itnet">
+          <span id="projectName">Network Architecture</span>
+          <span class="description" id="projectDescription">
+            A monopoly-like java project
+          </span>
+        </div>
+        <div class="project">
+          <img src="img/prog2.png" alt="my empire">
+          <span id="projectName">Shopping App</span>
+          <span class="description" id="projectDescription">
+            A monopoly-like java project
+          </span>
+        </div>
+      </div>
+    </div>
+    
+  </div>   
     </div>
   </div>
-</div> -->
+</div>
 <script src="resume.js">
 
 </script>

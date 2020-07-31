@@ -11,5 +11,6 @@ function myFunction() {
   } else {
     navbar.style.backgroundColor="transparent";
     navbar.classList.remove("sticky");
+    
   }
 }
