@@ -58,7 +58,24 @@ body {
   border-radius: 100%;
   position: relative;
   top: 0px;
-  
+  transition: 0.70s;
+  -webkit-transition: 0.70s;
+  -moz-transition: 0.70s;
+  -ms-transition: 0.70s;
+  -o-transition: 0.70s;
+}
+
+#navbar img:hover{
+  transition: 0.70s;
+  -webkit-transition: 0.70s;
+  -moz-transition: 0.70s;
+  -ms-transition: 0.70s;
+  -o-transition: 0.70s;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 #navbar a:hover {
   font-weight: 900;
@@ -98,7 +115,7 @@ body {
   width: 100%;
   /* text-align: center; */
   justify-content: center;
- 
+  position: relative;
   
 }
 
@@ -137,15 +154,15 @@ body {
   grid-area: 1/2/ span 3/4;
   height: 39em;
   position: absolute;
-  top: 54px;
-  right: 304px;
+  top: 0px;
+  right: 100px;
   box-shadow: black;
 
 }
 .socMeds{
   /* height: 40px; */
-  padding-left: 330px;
-  margin-top: -50px;
+  padding-left: 500px;
+    margin-top: -20px;
 }
 .socMeds i{
   padding: 0px 50px;
@@ -185,8 +202,14 @@ body {
   display: grid;
   grid-template-rows: auto auto;
   margin: 0px auto;
-
+  z-index: 100;
   
+}
+
+#educParty{
+  position: absolute;
+  left: 200px;
+  z-index: 3;
 }
 .sectionTitle{
   grid-row: 1;
@@ -201,9 +224,16 @@ body {
 }
 #education{
   padding-top: 1000px;
-  background-color: white;
+  /* background-color: white; */
   padding-top: 69px;
- 
+ background-color: black;
+ /* background-color: rgba(185, , 242, 0.75); */
+  position: relative;
+}
+
+
+#particles-js{
+  z-index: -10;
   
 }
 
@@ -221,7 +251,7 @@ body {
 
 }
 .school img{
-  height: 16em;
+  height: 23em;
   position: relative;
   left: 80px;
   bottom: 50px;
@@ -244,20 +274,20 @@ body {
   font-family: 'Recursive', sans-serif;
   font-weight: 700;
   padding-bottom: 20px;
-  font-size: 3em;
+  font-size: 4em;
 }
 
 .schoolInfo #course{
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 300;
-  font-size: 1.5em;
+  font-size: 2em;
   margin-bottom: 10px;
 }
 
-.schoolInfo #schoolYear,#awards{
+.schoolInfo #schoolYear,.awards{
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 300;
-  font-size: 1.3em;
+  font-size: 1.5em;
 }
 
 
@@ -319,9 +349,10 @@ body {
   font-size: 2em;
 }
 
-#skills{
+#skills, #contactMe{
   background-color: #f5f5f2;
-  padding-top: 100px;
+  padding-top: 75px;
+  
   padding-bottom: 100px;
 }
 
@@ -374,6 +405,26 @@ body {
   text-align: center;
   align-content: center;
   border-radius: 100%;
+  transition: 0.70s;
+  -webkit-transition: 0.70s;
+  -moz-transition: 0.70s;
+  -ms-transition: 0.70s;
+  -o-transition: 0.70s;
+
+  
+}
+
+.hobbiesIcons:hover{
+  transition: 0.70s;
+  -webkit-transition: 0.70s;
+  -moz-transition: 0.70s;
+  -ms-transition: 0.70s;
+  -o-transition: 0.70s;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .hobbiesIcons i{
@@ -419,6 +470,12 @@ body {
   padding-bottom: 200px;
 }
 
+#projects .description{
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  line-height: 35px;
+  font-size: 1.5em;
+}
 .projectGrid{
   display: grid;
   grid-template-columns: 400px 400px 400px;
@@ -431,7 +488,8 @@ body {
   overflow: hidden;
   padding: 20px;
   text-align: center;
-  padding-bottom: 100px;;
+  padding-bottom: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .project img{
    width: 350px;
@@ -452,4 +510,25 @@ body {
   padding-top: 10px;;
   font-size: 2em;
   display: block;
+}
+
+#contactMe{
+  text-align: center;
+}
+
+#contbtn{
+  height: 50px;
+}
+
+#contactMe .intro{
+  margin-top: -50px;
+  font-size: 2em;
+}
+
+button{
+  border-radius: 50%;
+}
+#contbtn i{
+  margin: 0 auto;
+  margin-top: -37px;
 }

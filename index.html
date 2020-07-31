@@ -4,23 +4,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="img/rvlogo.ico">
 <title>Ricson Vergara</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js%22%3E"></script> 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 <body>
 
-<div class="header">
+<div class="header" id="start">
   <div id="navbar">
-    <img id="myLogo" src="img/rvlogo.ico" onclick="rotateImage();">
-    <a id="profile" href="#aboutMe">Ricson Vergara</a>
+    <img id="myLogo" src="img/rvlogo.ico">
+    <a id="profile" href="#start">Ricson Vergara</a>
     <a href="#aboutMe">About me</a>
     <a href="#education">Education</a>
     <a href="#organizations">Organizations</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
-    <a href="javascript:void(0)">Contact Me</a>
+    <a href="#contactMe">Contact Me</a>
   </div>
   <div class="section container" id="aboutMe">
     <h3 class="text-center">Ricson Vergara</h3>
@@ -30,7 +28,7 @@
       <img src="img/myPic.png" alt="my picture">
       
   </div>
-  <div class="container socMeds">
+  <div class="socMeds">
     <a href="https://www.linkedin.com/in/ricson-vergara/">
       <i class="linkedin icon huge"></i>
     </a>
@@ -45,38 +43,41 @@
  
 </div>
 
-<div class="section" id="education">
-  <div class="sectionContent">
-  <h3 class="sectionTitle">Education</h3>
-  <div class="sectionContainer">
-    <div class="school">
-      <img src="img/dlsu.png" alt="de la salle university logo">
-      <div class="schoolInfo">
-        <span id="schoolName">De La Salle University</span>
-        <span id="course">Bachelor of Science in Information Technology</span>
-        <span id="schoolYear">2018-Present</span> 
-              <p class="awards">Consistent First Dean's Lister Awardee 
-              </p>
-      </div>
-    </div>
 
-    <div class="school">
-      <img src="img/munsci.jpg" alt="muntinlupa science high school logo">
-      <div class="schoolInfo">
-        <span id="schoolName">Muntinlupa Science High School </span>
-        <span id="course">Science Technology Engineering Mathematics (STEM)</span>
-        <span id="schoolYear">2012-2018</span> 
-              <p class="awards">Batch Overall Rank 4 <br>
-                With High Honors <br>
-                Academic Performance in Science and Filipino  <br>
-              </p>
+<div class="section" id="education">
+  <div class="sectionContent" id="educParty">
+    <h3 class="sectionTitle">Education</h3>
+    <div class="sectionContainer">
+      <div class="school">
+        <img src="img/dlsu.png" alt="de la salle university logo">
+        <div class="schoolInfo">
+          <span id="schoolName">De La Salle University</span>
+          <span id="course">Bachelor of Science in Information Technology</span>
+          <span id="schoolYear">2018-Present</span> 
+                <p class="awards">Consistent First Dean's Lister Awardee 
+                </p>
         </div>
       </div>
 
+      <div class="school">
+        <img src="img/munsci.png" alt="muntinlupa science high school logo">
+        <div class="schoolInfo">
+          <span id="schoolName">Muntinlupa Science High School </span>
+          <span id="course">Science Technology Engineering Mathematics (STEM)</span>
+          <span id="schoolYear">2012-2018</span> 
+                <p class="awards">Batch Overall Rank 4 <br>
+                  With High Honors <br>
+                  Academic Performance in Science and Filipino  <br>
+                </p>
+          </div>
+        </div>
 
+
+      </div>
     </div>
-  </div>
       
+    <div id="particles-js" >
+    </div>
 </div>
         
 <div class="section" id="organizations">
@@ -99,7 +100,7 @@
         <div class="orgInfo">
          <span id="orgName">Lasallian Ambassadors</span>
          <span id="position">Publicity and Documentation Officer</span>
-         <span id="schoolYear">2018-20200</span> 
+         <span id="schoolYear">2018-2020</span> 
                <p id="description">Actively Contributed in making the branding and publicity materials for
                  annual frosh welcoming of DLSU, Lasallian Personal Effectiveness Program (LPEP). Been an  orienter and photographer of the froshies in their welcoming event in the university. </p>
          </div>
@@ -188,21 +189,26 @@
           <img src="img/myEmpire2.png" alt="my empire">
           <span id="projectName">My Empire</span>
           <span class="description" id="projectDescription">
-            A monopoly-like java project
+            A monopoly-like java project in our CCPROG3 
+            (Introduction to Object-Oriented Programming) Subject. 
+            A game for 2-4 players with almos the same rules as monopoly. 
           </span>
         </div>
         <div class="project">
           <img src="img/itnet.png" alt="itnet">
           <span id="projectName">Network Architecture</span>
           <span class="description" id="projectDescription">
-            A monopoly-like java project
+            A network arthitecture done for a company with multi-network, network security, with advance routing and switching.
+            This is a project from our ITNET03 (ADVANCED ROUTING AND SWITCHING) subject
           </span>
         </div>
         <div class="project">
           <img src="img/prog2.png" alt="my empire">
           <span id="projectName">Shopping App</span>
           <span class="description" id="projectDescription">
-            A monopoly-like java project
+            One of my very first programming projects. This is from my CCPROG2 (Programming with Stuctured Data Types Subject).
+            This is a shopping app with users, sellers, and admin where their data are stored in text and binary files.
+
           </span>
         </div>
       </div>
@@ -212,15 +218,46 @@
     </div>
   </div>
 </div>
-<script src="resume.js">
+
+<div class="section" id="contactMe">
+  <div class="sectionContent">
+    <h3 class="sectionTitle">Get in Touch!</h3>       
+    <div class="sectionContainer">
+      <div class="contactInfo"></div>
+        <h3 class="intro">Feel free to email me:</h3>
+        <div id="contbtn">
+          <div class="ui animated button" tabindex="0">
+            <div class="visible content">
+              <h3 id="email">ricsonvergara07@yahoo.com</h3></div>
+            <div class="hidden content">
+              <i class="envelope icon huge"></i>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="section">
+
+</div>
+
 
 </script>
 
 <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"></script>
-    <script src="semantic/semantic.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="semantic/semantic.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js%22%3E"></script> 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>   
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>   
+<script src="resume.js"></script>
+<script src="particles.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
