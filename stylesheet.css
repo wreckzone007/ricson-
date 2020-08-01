@@ -111,7 +111,7 @@ body {
 }
 
 .section{
-  height: auto;
+  height: fit-content;
   width: 100%;
   /* text-align: center; */
   justify-content: center;
@@ -203,13 +203,14 @@ body {
   grid-template-rows: auto auto;
   margin: 0px auto;
   z-index: 100;
-  
+  height: fit-content;
 }
 
 #educParty{
   position: absolute;
   left: 200px;
   z-index: 3;
+  height: fit-content;
 }
 .sectionTitle{
   grid-row: 1;
@@ -223,31 +224,34 @@ body {
   
 }
 #education{
-  padding-top: 1000px;
-  /* background-color: white; */
   padding-top: 69px;
- background-color: black;
+ background-color: white;
  /* background-color: rgba(185, , 242, 0.75); */
-  position: relative;
+  /* position: relative; */
+  color: black;
+  min-height: fit-content;
 }
 
 
 #particles-js{
   z-index: -10;
-  
+  /* height: fit-content; */
+  height: 100%;
 }
 
 .sectionContainer{
   grid-row: 2;
   margin: 0 auto;
+  height: fit-content;
 }
 .school{
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: auto auto;
-  align-content: center;
+  align-content: left;
   grid-gap: 80px;
-  margin-bottom: 75px  ;  
+  margin-bottom: 75px  ;
+  float: left;  
 
 }
 .school img{
@@ -266,6 +270,10 @@ body {
   
 }
 
+.schoolInfo{
+  align-items: left;
+  align-se;
+}
 .schoolInfo span,p{
   display: block;
 }
