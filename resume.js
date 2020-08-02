@@ -217,7 +217,7 @@ var firebaseConfig = {
          
           aboutMe.appendChild(h3)
           aboutMe.appendChild(p)
-          aboutMe.appendChild(img)
+          
 
           socMeds.appendChild(li)
           socMeds.appendChild(i1)
@@ -226,10 +226,13 @@ var firebaseConfig = {
           socMeds.appendChild(fb)
           socMeds.appendChild(i3)
 
+          aboutMe.appendChild(socMeds)
+          aboutMe.appendChild(img)
+     
           console.log(aboutMe)
-          console.log(socMeds)
+     
           parent.appendChild(aboutMe)
-          parent.appendChild(socMeds)
+          // parent.appendChild(socMeds)
           
         }
 

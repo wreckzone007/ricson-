@@ -129,9 +129,10 @@ body {
 
 #aboutMe{
   display: grid;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto auto auto;
   grid-template-columns: 600px auto;
   grid-gap: 0;
+  
   border: 100px;
   color: black;
   
@@ -151,7 +152,7 @@ body {
   grid-area: 2/1/3/2;
 }
 #aboutMe img{
-  grid-area: 1/2/ span 3/4;
+  grid-area: 1/2/ span 4/4;
   height: 39em;
   position: absolute;
   top: 0px;
@@ -160,9 +161,9 @@ body {
 
 }
 .socMeds{
-  /* height: 40px; */
-  padding-left: 500px;
-    margin-top: -20px;
+  grid-area: 3/1/4/2;
+  position: relative;
+  left: -132px;
 }
 .socMeds i{
   padding: 0px 50px;
@@ -247,11 +248,12 @@ body {
 .school{
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto 870px;
   align-content: left;
   grid-gap: 80px;
   margin-bottom: 75px  ;
   float: left;  
+  justify-content: space-between;
 
 }
 .school img{
@@ -272,7 +274,8 @@ body {
 
 .schoolInfo{
   align-items: left;
-  align-se;
+  min-width: 870px;
+  
 }
 .schoolInfo span,p{
   display: block;
@@ -287,7 +290,7 @@ body {
 
 .schoolInfo #course{
   font-family: 'Noto Sans JP', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 2em;
   margin-bottom: 10px;
 }
@@ -304,10 +307,11 @@ body {
   background: url(img/orgBg.png) no-repeat center fixed;
   background-size: cover;
   padding-top: 60px;
+  widg
 }
 
 #organizations img{
-  height: 50em;
+  height: 40em;
 
   
 }
@@ -393,6 +397,7 @@ body {
 .hobby{
   width: 100px;
   text-align: center;
+  
 }
 
 .hobbyGroup{
@@ -443,6 +448,10 @@ body {
   border: 5px;
  }
 
+ #defaultHobby{
+  color:#696e6e;  
+  border-color: #696e6e;
+ }
 #teamwork{
   color:#58a695;  
   border-color: #58a695
@@ -493,6 +502,7 @@ body {
 
 .project{
   background-color: rgba(245, 245, 242, 0.75);
+  position: relative;
   overflow: hidden;
   padding: 20px;
   text-align: center;
