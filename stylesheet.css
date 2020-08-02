@@ -146,6 +146,7 @@ body {
   border-bottom: 5px solid #888e93;
   font-family: 'Recursive', sans-serif;
 }
+
 #aboutMe p{
   text-align: center;
   margin-left: -300px;
@@ -164,12 +165,19 @@ body {
   grid-area: 3/1/4/2;
   position: relative;
   left: -132px;
+  grid-template-columns: auto auto auto;
 }
 .socMeds i{
   padding: 0px 50px;
   color: #313131;
   transition: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition-delay: 175ms;
+  
+}
+.socMeds a{
+  height: 100px;
+  width: 100px;
+  text-decoration: none;
 }
 
 .socMeds .linkedin:hover{
@@ -507,7 +515,7 @@ body {
   padding: 20px;
   text-align: center;
   padding-bottom: 50px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  boxbox-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .project img{
    width: 350px;

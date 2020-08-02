@@ -181,7 +181,7 @@ var firebaseConfig = {
     
       db.collection("others").get().then(function(snapshot){
         snapshot.forEach(function(doc){
-          readAboutMe(doc);
+         readAboutMe(doc);
             })
     });
      
@@ -197,16 +197,36 @@ var firebaseConfig = {
           
           let h3 = document.createElement("h3");
           h3.classList.add("text-center")
+
+          let intro = document.createElement("div")
+          intro.setAttribute("id","introHeading");
+          
+    
           let p = document.createElement("p");
           p.setAttribute("id","aboutMeContent");
           p.classList.add("text")
-
+          let edit0 = document.createElement("button")
+          edit0.classList.add("ui")
+          edit0.classList.add("inverted")
+          edit0.classList.add("brown")
+          edit0.classList.add("button")
+          edit0.setAttribute("id", "editSoc");
+          edit0.innerHTML = "Edit";
+          edit0.setAttribute("onClick", "openForm('Intro')");
+          
         
           let img = document.createElement("img");
          
 
           let socMeds = document.createElement("div")
           socMeds.classList.add("socMeds");
+          let div1 = document.createElement("div")
+          div1.classList.add("socmedGroup")
+          let div2 = document.createElement("div")
+          div2.classList.add("socmedGroup")
+          let div3 = document.createElement("div")
+          div3.classList.add("socmedGroup")
+
           let li = document.createElement("a")
           let i1 = document.createElement("i")
           let git = document.createElement("a")
@@ -226,7 +246,34 @@ var firebaseConfig = {
           i3.classList.add("f")
           i3.classList.add("icon")
           i3.classList.add("huge")
-                     
+
+          let edit1 = document.createElement("button")
+          edit1.classList.add("ui")
+          edit1.classList.add("inverted")
+          edit1.classList.add("brown")
+          edit1.classList.add("button")
+          edit1.setAttribute("id", "editSoc");
+          edit1.innerHTML = "Edit";
+          edit1.setAttribute("onClick", "openForm('Linkedin')");
+
+          let edit2 = document.createElement("button")
+          edit2.classList.add("ui")
+          edit2.classList.add("inverted")
+          edit2.classList.add("brown")
+          edit2.classList.add("button")
+          edit2.setAttribute("id", "editSoc");
+          edit2.innerHTML = "Edit";
+          edit2.setAttribute("onClick", "openForm('Git')");
+
+          let edit3 = document.createElement("button")
+          edit3.classList.add("ui")
+          edit3.classList.add("inverted")
+          edit3.classList.add("brown")
+          edit3.classList.add("button")
+          edit3.setAttribute("id", "editSoc");
+          edit3.innerHTML = "Edit";
+          edit3.setAttribute("onClick", "openForm('Fb')");
+
           h3.innerHTML = data.name
           p.innerHTML = data.aboutMe
           img.setAttribute("src", "img/myPic.png");
@@ -234,17 +281,29 @@ var firebaseConfig = {
           git.setAttribute("href", data.github)
           fb.setAttribute("href", data.facebook)
          
+         
           aboutMe.appendChild(h3)
-          aboutMe.appendChild(p)
+
+          intro.appendChild(p)
+          intro.appendChild(edit0)
+
+          aboutMe.appendChild(intro)
+
+          li.appendChild(i1)
+          div1.appendChild(li)
+          div1.appendChild(edit1)
+
+          git.appendChild(i2)
+          div2.appendChild(git)
+          div2.appendChild(edit2)
+
+          fb.appendChild(i3)
+          div3.appendChild(fb)
+          div3.appendChild(edit3)
           
-
-          socMeds.appendChild(li)
-          socMeds.appendChild(i1)
-          socMeds.appendChild(git)
-          socMeds.appendChild(i2)
-          socMeds.appendChild(fb)
-          socMeds.appendChild(i3)
-
+          socMeds.appendChild(div1)
+          socMeds.appendChild(div2)
+          socMeds.appendChild(div3)
           aboutMe.appendChild(socMeds)
           aboutMe.appendChild(img)
      
@@ -448,16 +507,54 @@ var firebaseConfig = {
     //         }
     // });
 
-    function openProjectForm() {
-      document.getElementById("addProject").style.display = "block";
+
+    function openForm(formName) {
+      
+      // document.getElementById("body").classList.add("blur");
+      // document.getElementById("addProject").classList.add("unblur");
+      
+      document.getElementById("addForm").style.display="block";
+      document.getElementById("add" + formName).style.display = "block";
+    }
+
+    function closeForm(formName){
+      console.log(formName)
+      
+      document.getElementById("addForm").style.display="none";
+      document.getElementById("add" + formName).style.display = "none";
+      document.getElementById("body").classList.add("unblur");
     }
     
-    function closeForm(){
-      document.getElementById("addProject").style.display = "none";
-    }
+    function submitEducation() {
+      document.getElementById("addEducation").style.display = "none";
+      document.getElementById("addForm").style.display="none";
+      console.log("closing educaiton form..")
+      var name = document.getElementById("schoolName2").value;
+      var degree = document.getElementById("degree2").value;
+      var yearStart = document.getElementById("yearStart2").value;
+      var endYearvar = document.getElementById("yearEnd2").value;
+      var award2 = document.getElementById("award2").value;
+      db.collection("educations").add({
+        school: name,
+        degree: degree,
+        startYear: yearStart,
+        endYear: endYearvar,
+        award: award2
+        })
+  
+    .then(function(docRef) {
+        console.log("School added with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+        
+    });
+    };
+    
+    
     function submitProject() {
       document.getElementById("addProject").style.display = "none";
-      
+      document.getElementById("addForm").style.display="none";
       var title = document.getElementById("projTitle").value;
       var desc = document.getElementById("projDesc").value;
 
@@ -473,6 +570,126 @@ var firebaseConfig = {
     })
     .catch(function(error) {
         console.error("Error adding document: ", error);
+        
+    });
+    };
+
+    function submitOrg() {
+      document.getElementById("addOrganization").style.display = "none";
+      document.getElementById("addForm").style.display="none";
+
+      var name = document.getElementById("orgName2").value;
+      var position = document.getElementById("position2").value;
+      var yearStart = document.getElementById("yearStart").value;
+      var endYearvar = document.getElementById("yearEnd").value;
+      var description  = document.getElementById("description2").value;
+
+      db.collection("organizations").add({
+        name: name,
+        position: position,
+        year_start: yearStart,
+        year_end: endYearvar,
+        description: description
+        })
+      .then(function(docRef) {
+        console.log("Project added with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+        
+    });
+    };
+
+    
+    
+
+    
+    function submitHobby() {
+      document.getElementById("addHobby").style.display = "none";
+      document.getElementById("addForm").style.display="none";
+      var hobby = document.getElementById("hobbyName").value;
+            // console.log(title + desc)
+      db.collection("hobbies").add({
+         hobby: hobby
+      })
+  
+    .then(function(docRef) {
+        console.log("Hobby added with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+        
+    });
+    };
+
+    function editIntro() {
+      document.getElementById("addIntro").style.display = "none";
+      document.getElementById("addForm").style.display="none";
+      var intro1 = document.getElementById("aboutIntro").value;
+            // console.log(title + desc)
+      db.collection("others").doc('intro').update({
+        aboutMe: intro1
+      })
+  
+    .then(function(docRef) {
+        console.log("About me updated with ID: ");
+    })
+    .catch(function(error) {
+        console.error("Error updating document: ", error);
+        
+    });
+    };
+
+    function editLinkedin() {
+      document.getElementById("addLinkedin").style.display = "none";
+      document.getElementById("addForm").style.display="none";
+      var linkedin1 = document.getElementById("linkedin").value;
+            // console.log(title + desc)
+      db.collection("others").doc('intro').update({
+        linkedin: linkedin1
+      })
+  
+    .then(function(docRef) {
+        console.log("Linkedinupdated");
+    })
+    .catch(function(error) {
+        console.error("Error updating document: ", error);
+        
+    });
+    };
+
+    function editGit() {
+      document.getElementById("addGit").style.display = "none";
+      document.getElementById("addForm").style.display="none";
+      var git = document.getElementById("github").value;
+            // console.log(title + desc)
+      db.collection("others").doc('intro').update({
+        github: git
+      })
+  
+    .then(function(docRef) {
+        console.log("Github nupdated");
+    })
+    .catch(function(error) {
+        console.error("Error updating document: ", error);
+        
+    });
+    };
+
+    function editFacebook() {
+      document.getElementById("addFb").style.display = "none";
+      document.getElementById("addForm").style.display="none";
+      var fb = document.getElementById("facebook").value;
+            // console.log(title + desc)
+      db.collection("others").doc('intro').update({
+        facebook: fb
+      })
+  
+    .then(function(docRef) {
+        console.log("Facebook nupdated");
+    })
+    .catch(function(error) {
+        console.error("Error updating document: ", error);
         
     });
     };

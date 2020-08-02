@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="img/rvlogo.ico">
 <title>Ricson Vergara</title>
@@ -8,8 +9,10 @@
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
 <link rel="stylesheet" type="text/css" href="edit.css">
 </head>
-<body>
-
+<body id="body">
+  <div id="addForm">
+  
+  </div>
 <div class="header" id="start">
   <div id="navbar">
     <img id="myLogo" src="img/rvlogo.ico">
@@ -24,23 +27,39 @@
   <div id="intro">
     <!-- <div class="section container" id="aboutMe">
       <h3 class="text-center">Ricson Vergara</h3>
-        <p class="text" id="aboutMeContent">A second year college student under the program of Bachelor of Science in Information Technology who seeks learning through 
+        <div id="introHeading">
+          <p class="text" id="aboutMeContent">A second year college student under the program of Bachelor of Science in Information Technology who seeks learning through 
           experience and opportunities. A student leader with a strong desire to keep on learning from anyone.
         </p>
+        <button class="ui invertit brown button" onclick="openForm('Education')" id="editButton">Edit</button>
+      </div>
         <img src="img/myPic.png" alt="my picture">
         
+        <div class="socMeds">
+          <div class="socmedGroup">
+          <a href="https://www.linkedin.com/in/ricson-vergara/">
+            <i class="linkedin icon huge"></i>
+          </a> <br>
+          <button class="ui inverted brown button" onclick="openForm('Education')" id="editSoc">Edit</button>
+        </div> -->
+<!--         
+        <div class="socmedGroup">
+          <a href="https://github.com/wreckzone007">
+            <i class="github icon huge" size='huge'></i>
+          </a> <br>
+          <button class="ui inverted brown button" onclick="openForm('Education')" id="editSoc">Edit</button>
+        </div>
+        <div class="socmedGroup">
+          
+          <a href="https://www.facebook.com/ricsonandrei.vergara">
+            <i class="facebook f icon huge"></i>
+          </a> <br>
+          <button class="ui inverted brown button" onclick="openForm('Education')" id="editSoc">Edit</button>
+        </div> -->
+        
+          
     </div>
-    <div class="socMeds">
-      <a href="https://www.linkedin.com/in/ricson-vergara/">
-        <i class="linkedin icon huge"></i>
-      </a>
-      <a href="https://github.com/wreckzone007">
-        <i class="github icon huge" size='huge'></i>
-      </a>
-      <a href="https://www.facebook.com/ricsonandrei.vergara">
-      <i class="facebook f icon huge"></i>
-      </a>
-    </div> -->
+    
   </div>
  
 </div>
@@ -51,7 +70,7 @@
   <div class="sectionContent" id="educParty">
       <div class="heading">
         <h3 class="sectionTitle">Education</h3>
-        <button class="ui inverted brown button" id="addButton">Add</button>
+        <button class="ui inverted brown button" onclick="openForm('Education')" id="addButton">Add</button>
         
       </div>
     
@@ -98,7 +117,7 @@
   <div class="sectionContent">
     <div class="heading">
     <h3 class="sectionTitle">Organizations</h3>    
-    
+    <button class="ui inverted brown button" onclick="openForm('Organization')" id="addButton">Add</button>
         
   </div>
     <div class="sectionContainer" id="orgContainer">
@@ -135,7 +154,7 @@
   <div class="sectionContent">
     <div class="heading">
       <h3 class="sectionTitle">Skills</h3>
-      <button class="ui inverted brown button" id="addButton" style="visibility: hidden;">Add</button>
+      <button class="ui inverted brown button"  id="addButton" style="visibility: hidden;">Add</button>
         
   </div> 
          
@@ -172,7 +191,7 @@
           <div class="heading">
           <p id="description">I'm interested in digital arts and photomanipulation. I love mystery and scifi movies and series.
             I like going to different places and adventures. My hobbies are gaming, playing sports, and editing.  </p>
-            <button class="ui inverted brown button" id="addButton">Add</button>
+            <button class="ui inverted brown button" onclick="openForm('Hobby')" id="addButton">Add</button>
         
       </div>
             <div class="hobbyGroup" id="hobbiesContainer">
@@ -197,15 +216,15 @@
                 <i class="playstation icon huge"></i>
               </div>
               <span class="hobbiesName">Gaming</span>
-            </div>
-
+            </div>-->
+<!-- 
             <div class="hobby">
               <div class="hobbiesIcons" id="travel">
                 <i class="plane icon huge"></i>
               </div>
               <span class="hobbiesName">Travel</span>
-            </div> -->
-          </div>
+            </div> 
+          </div> -->
             
         </div>
       </div>
@@ -218,7 +237,7 @@
   <div class="sectionContent">
     <div class="heading">
     <h3 class="sectionTitle">Projects</h3> 
-    <button class="ui inverted brown button" onclick="openProjectForm()" id="addButton">Add</button>
+    <button class="ui inverted brown button" onclick="openForm('Project')" id="addButton">Add</button>
     
       </div>      
     <div class="sectionContainer">
@@ -281,24 +300,117 @@
       </div>
   </div>
 </div>
-<div class="section">
 
-</div>
-
-
-  <div class="form-popup" id="addProject">
-    <div id="addForm">
+  <div class="form-popup" id="addEducation">
+     
     <form  class="form-container">
-      <h1>Add Project</h1>
-      <input type="text" placeholder="Enter Project Title" id="projTitle" required>
+      <h1>Add Education</h1>
+      <input type="text" placeholder="Enter school name" id="schoolName2" required>
 
-      <input type="text" placeholder="Enter project description" id="projDesc"required>
+      <input type="text" placeholder="Enter degree" id="degree2" required>
+      <input type="text" placeholder="Enter start year" id="yearStart2" required>
+      <input type="text" placeholder="Enter end year" id="yearEnd2" required>
+      <input type="text" placeholder="Enter award" id="award2" required>
 
-      <button type="button" class="btn" onclick="submitProject()">Submit</button>
-      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      <button type="button" class="btn" onclick="submitEducation()">Submit</button>
+      <button type="button" class="btn cancel" onclick="closeForm('Education')">Close</button>
     </form>
   </div>
-</div>
+
+
+
+ 
+  
+    
+  <div class="form-popup" id="addOrganization">
+     
+    <form  class="form-container">
+      <h1>Add Organization</h1>
+      <input type="text" placeholder="Enter organization name" id="orgName2" required>
+
+      <input type="text" placeholder="Enter position" id="position2"required>
+      <input type="text" placeholder="Enter start year" id="yearStart"required>
+      <input type="text" placeholder="Enter end year" id="yearEnd"required>
+      <input type="text" placeholder="Enter description" id="description2"required>
+
+      <button type="button" class="btn" onclick="submitOrg()">Submit</button>
+      <button type="button" class="btn cancel" onclick="closeForm('Organization')">Close</button>
+    </form>
+  </div>
+
+
+    <div class="form-popup" id="addProject">
+     
+      <form  class="form-container">
+        <h1>Add Project</h1>
+        <input type="text" placeholder="Enter Project Title" id="projTitle" required>
+  
+        <input type="text" placeholder="Enter project description" id="projDesc"required>
+  
+        <button type="button" class="btn" onclick="submitProject()">Submit</button>
+        <button type="button" class="btn cancel" onclick="closeForm('Project')">Close</button>
+      </form>
+    </div>
+
+    <div class="form-popup" id="addHobby">
+     
+      <form  class="form-container">
+        <h1>Add Project</h1>
+        <input type="text" placeholder="Enter hobby" id="hobbyName" required>
+  
+         
+        <button type="button" class="btn" onclick="submitHobby()">Submit</button>
+        <button type="button" class="btn cancel" onclick="closeForm('Hobby')">Close</button>
+      </form>
+    </div>
+  
+  
+
+    <div class="form-popup" id="addIntro">
+     
+      <form  class="form-container">
+        <h1>Edit intro</h1>
+        <input type="text" placeholder="Enter Project Title" id="aboutIntro" required>
+   
+        <button type="button" class="btn" onclick="editIntro()">Submit</button>
+        <button type="button" class="btn cancel" onclick="closeForm('Intro')">Close</button>
+      </form>
+    </div>
+
+    <div class="form-popup" id="addLinkedin">
+     
+      <form  class="form-container">
+        <h1>Edit Linkedin Link</h1>
+        <input type="text" placeholder="Enter new Linkedin Link" id="linkedin" required>
+   
+        <button type="button" class="btn" onclick="editLinkedin()">Submit</button>
+        <button type="button" class="btn cancel" onclick="closeForm('Linkedin')">Close</button>
+      </form>
+    </div>
+
+    <div class="form-popup" id="addGit">
+     
+      <form  class="form-container">
+        <h1>Edit Github Link</h1>
+        <input type="text" placeholder="Enter new Github Link" id="github" required>
+   
+        <button type="button" class="btn" onclick="editGit()">Submit</button>
+        <button type="button" class="btn cancel" onclick="closeForm('Git')">Close</button>
+      </form>
+    </div>
+
+    <div class="form-popup" id="addFb">
+     
+      <form  class="form-container">
+        <h1>Edit Facebook Link</h1>
+        <input type="text" placeholder="Enter new Facebook Link" id="facebook" required>
+   
+        <button type="button" class="btn" onclick="editFacebook()">Submit</button>
+        <button type="button" class="btn cancel" onclick="closeForm('Fb')">Close</button>
+      </form>
+    </div>
+
+    
 
 
 </script>
