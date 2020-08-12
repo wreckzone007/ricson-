@@ -2,6 +2,25 @@ window.onscroll = function() {myFunction()};
 
 var navbar = document.getElementById("navbar");
 var sticky = navbar.offsetTop;
+var justOpened = 1;
+
+ $(document).ready(function(){
+  
+  firebase.auth().onAuthStateChanged(user => {
+    if(user){
+    $("#exampleModal").modal('hide');
+    console.log(user.email + " is logged in")
+   }
+   else{
+    $("#exampleModal").modal({backdrop: 'static', keyboard: false});
+    $("#exampleModal").modal('show');
+    
+   }
+});
+
+ })
+
+ 
 
 function myFunction() {
   if (window.pageYOffset >= sticky) {
@@ -85,25 +104,20 @@ var firebaseConfig = {
       span3.innerHTML = data.startYear + "-" + data.endYear
       p1.innerHTML = data.award
 
-      console.log(span1)
-      console.log(span2)
-      console.log(span3)
-      console.log(p1)
-      
       console.log("image src: " + img1.src);
       school.appendChild(img1)
-      console.log("img1")
      
-      console.log("div2")
+     
+
       div2.appendChild(span1)
      
       div2.appendChild(span2)
       div2.appendChild(span3)
       div2.appendChild(p1)
-      console.log("p1")
+    
       school.appendChild(div2)
       school.appendChild(del)
-      console.log(div2)
+    
       parent.appendChild(school)
       
     }
@@ -156,25 +170,18 @@ var firebaseConfig = {
         span3.innerHTML = data.year_start + "-" + data.year_end
         p1.innerHTML = data.description
   
-        console.log(span1)
-        console.log(span2)
-        console.log(span3)
-        console.log(p1)
-        
-        console.log("image src: " + img1.src);
+
         org.appendChild(img1)
-        console.log("img1")
-       
-        console.log("div2")
+
         div2.appendChild(span1)
        
         div2.appendChild(span2)
         div2.appendChild(span3)
         div2.appendChild(p1)
-        console.log("p1")
+     
         org.appendChild(div2)
         org.appendChild(del)
-        console.log(div2)
+  
         parent.appendChild(org)
         
       }
@@ -307,22 +314,40 @@ var firebaseConfig = {
           aboutMe.appendChild(socMeds)
           aboutMe.appendChild(img)
      
-          console.log(aboutMe)
+ 
      
           parent.appendChild(aboutMe)
           // parent.appendChild(socMeds)
           
         }
 
-        db.collection("hobbies").get().then(function(snapshot){
-          snapshot.forEach(function(doc){
-            readHobbies(doc);
-              })
-      });
+      //   db.collection("hobbies").get().then(function(snapshot){
+      //     snapshot.forEach(function(doc){
+      //       readHobbies(doc);
+      //         })
+      // });
        
+      let hobbyList = document.getElementById("hobbiesContainer");
+
+      db.collection("hobbies").onSnapshot(snapshot => {
+        let changes = snapshot.docChanges();
+        changes.forEach(change => {
+            if(change.type == "added"){
+                readHobbies(change.doc);
+            }else if(change.type == "removed"){
+              // console.log("remove hobby: " + change.doc.id);
+              //   let div = hobbyList.querySelector('[data-id=' + change.doc.id + ']');
+              //   hobbyList.removeChild(div);
+              // readHobbies(change.doc);
+              deleteHobby(change.doc.id);
+             
+            }
+        })
+    })
+
           function readHobbies(doc){
       
-            let parent = document.getElementById("hobbiesContainer");
+            // let parent = document.getElementById("hobbiesContainer");
             let data = doc.data();
             
             let hobby= document.createElement("div");
@@ -368,8 +393,8 @@ var firebaseConfig = {
             hobby.appendChild(div1)
             hobby.appendChild(span)
             hobby.appendChild(del)
-            parent.appendChild(hobby)
-            console.log(hobby)
+            hobbyList.appendChild(hobby)
+         
           }
 
         db.collection("works").get().then(function(snapshot){
@@ -417,7 +442,7 @@ var firebaseConfig = {
               project.appendChild(br)
               project.appendChild(del)
               parent.appendChild(project)
-              console.log(project)
+             
             }
     /*
     //adding into organizations
@@ -490,29 +515,12 @@ var firebaseConfig = {
    
     // var email = 'courtney.ngo@dlsu.edu.ph';
     // var password = 'abcd1234'; 
-    // firebase.auth().signInWithEmailAndPassword(email, password).then(function(user){
-    //     console.log("user signed in");
-        
-    //     var user = firebase.auth().currentUser;
-    //     if(user != null){
-    //         console.log(user.email)
-            
-    //     }
-    // }).catch(function(err){
-    //     if(err.code == "auth/wrong-password"){
-    //         alert("wrong password")
-    //     }
-    //         else{
-    //             alert(err.message);
-    //         }
-    // });
-
 
     function openForm(formName) {
       
       // document.getElementById("body").classList.add("blur");
       // document.getElementById("addProject").classList.add("unblur");
-      
+      console.log("opening " + formName)
       document.getElementById("addForm").style.display="block";
       document.getElementById("add" + formName).style.display = "block";
     }
@@ -611,15 +619,20 @@ var firebaseConfig = {
             // console.log(title + desc)
       db.collection("hobbies").add({
          hobby: hobby
+         
       })
-  
-    .then(function(docRef) {
-        console.log("Hobby added with ID: ", docRef.id);
-    })
-    .catch(function(error) {
-        console.error("Error adding document: ", error);
+      console.log("hobby b4 refresh: " + hobby)
+
+     
+      
+      console.log("hobby after refresh: " + hobby)
+    // .then(function(docRef) {
+    //     console.log("Hobby added with ID: ", docRef.id);
+    // })
+    // .catch(function(error) {
+    //     console.error("Error adding document: ", error);
         
-    });
+    // });
     };
 
     function editIntro() {
@@ -693,3 +706,56 @@ var firebaseConfig = {
         
     });
     };
+
+    
+
+    function login(){
+      // document.getElementsByClassName("modal").hide();
+   
+      let email = document.getElementById('loginEmail').value;
+      let password = document.getElementById('password').value;
+
+      console.log("email: " + email + " " + password)
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      .then(function() {
+          // Existing and future Auth states are now persisted in the current
+          // session only. Closing the window would clear any existing state even
+          // if a user forgets to sign out.
+          // ...
+          // New sign-in will be persisted with session persistence.
+          return firebase.auth().signInWithEmailAndPassword(email, password);
+      })
+      .catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+      });
+      
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function(user){
+      console.log("user signed in");
+      
+      var user = firebase.auth().currentUser;
+      if(user != null){
+          console.log("nakalogin " + user.email)
+          $("#exampleModal").modal('hide');
+          
+      }
+  }).catch(function(err){
+      if(err.code == "auth/wrong-password"){
+          alert("wrong password")
+      }
+          else{
+              alert(err.message);
+          }
+  });
+
+
+    };
+
+    const logout = document.querySelector('#logout');
+    logout.addEventListener('click', (e) => {
+      e.preventDefault();
+      firebase.auth().signOut().then(()=>{
+        console.log(user.email + " signed out")
+      });
+    });

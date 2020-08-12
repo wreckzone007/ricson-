@@ -10,6 +10,31 @@
 <link rel="stylesheet" type="text/css" href="edit.css">
 </head>
 <body id="body">
+
+
+
+<!-- Modal -->
+<div class="semantic modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+      
+      </div>
+      <div class="modal-body">
+        <label for="email"><b>Email</b></label>
+    <input type="text" class="form-control" placeholder="Enter Email" name="email" id="loginEmail" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" class="form-control"  placeholder="Enter Password" name="password" id="password" required>
+      </div>
+      <div class="modal-footer">
+         <button type="button" class="btn btn-primary" onclick="login()">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <div id="addForm">
   
   </div>
@@ -23,6 +48,7 @@
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#contactMe">Contact Me</a>
+    <button type="button" class="ui right floated " id="logout" >Logout</button>
   </div>
   <div id="intro">
     <!-- <div class="section container" id="aboutMe">
@@ -151,7 +177,7 @@
 
 
 <div class="section" id="skills">
-  <div class="sectionContent">
+  <div class="sectionContent" id="skillsSection">
     <div class="heading">
       <h3 class="sectionTitle">Skills</h3>
       <button class="ui inverted brown button"  id="addButton" style="visibility: hidden;">Add</button>
@@ -161,6 +187,7 @@
     <div class="sectionContainer">
       <div class="skillsGrid">
         <div class="technicalSkills">
+        
           <h2 class="titles">Technical Skills</h2>
             <p id="description">Proficient in productivity tools including
               Microsoft Office and Google Programs. I'm experienced in network architecture and system administration and has satisfactory skills in
@@ -287,20 +314,22 @@
         
   </div>        
     <div class="sectionContainer">
-      <div class="contactInfo"></div>
+      <div class="contactInfo">
         <h3 class="intro">Feel free to email me:</h3>
         <div id="contbtn">
           <div class="ui animated button" tabindex="0">
             <div class="visible content">
-              <h3 id="email">ricsonvergara07@yahoo.com</h3></div>
+              <h3 id="email">ricsonvergara07@yahoo.com</h3>
+            </div>
             <div class="hidden content">
               <i class="envelope icon huge"></i>
             </div>
           </div>
       </div>
+      </div>
   </div>
 </div>
-
+</div>
   <div class="form-popup" id="addEducation">
      
     <form  class="form-container">
@@ -355,7 +384,7 @@
     <div class="form-popup" id="addHobby">
      
       <form  class="form-container">
-        <h1>Add Project</h1>
+        <h1>Add Hobby</h1>
         <input type="text" placeholder="Enter hobby" id="hobbyName" required>
   
          
@@ -409,7 +438,7 @@
         <button type="button" class="btn cancel" onclick="closeForm('Fb')">Close</button>
       </form>
     </div>
-
+       
     
 
 

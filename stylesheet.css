@@ -320,9 +320,11 @@ body {
 
 #organizations img{
   height: 40em;
-
-  
 }
+#skillsSection{
+  margin-bottom: 30px;
+}
+
 .org{
   
     display: grid;
@@ -371,7 +373,7 @@ body {
 
 #skills, #contactMe{
   background-color: #f5f5f2;
-  padding-top: 75px;
+  padding-top: 40px;
   
   padding-bottom: 100px;
 }
