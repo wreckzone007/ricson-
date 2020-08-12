@@ -10,10 +10,12 @@ var justOpened = 1;
     if(user){
     $("#exampleModal").modal('hide');
     console.log(user.email + " is logged in")
+    document.getElementById("addForm").style.display="none";
    }
    else{
     $("#exampleModal").modal({backdrop: 'static', keyboard: false});
     $("#exampleModal").modal('show');
+    document.getElementById("addForm").style.display="block";
     
    }
 });
@@ -51,17 +53,27 @@ var firebaseConfig = {
 };
 
   firebase.initializeApp(firebaseConfig);
-//firebase.analytics();
-// Initialize Firebase
-  //var defaultProject = firebase.initializeApp(firebaseConfig);
   var db = firebase.firestore();
 
-  db.collection("educations").get().then(function(snapshot){
-    snapshot.forEach(function(doc){
-      readEducation(doc);
-        })
+
+db.collection("educations").onSnapshot(snapshot => {
+  let changes = snapshot.docChanges();
+  changes.forEach(change => {
+      if(change.type == "added"){
+        
+        
+          readEducation(change.doc);
+      }else if(change.type == "removed"){
+        console.log("deleted hobby:" + change.doc.id);
+        let educList = document.getElementById("schoolsContainer");
+          let toremove = document.querySelector('[data-id=' + change.doc.id + ']');
+          educList.removeChild(toremove);
+    
+       
+      }
+  })
 });
- 
+
     function readEducation(doc){
 
       let parent = document.getElementById("schoolsContainer");
@@ -69,7 +81,8 @@ var firebaseConfig = {
       
       let school = document.createElement("div");
       school.classList.add("school")
-      
+      school.setAttribute('data-id', doc.id);
+
       let img1 = document.createElement("img");
       let div2 = document.createElement("div");
       div2.setAttribute("class", "schoolInfo");
@@ -119,15 +132,30 @@ var firebaseConfig = {
       school.appendChild(del)
     
       parent.appendChild(school)
+      let educHeight = document.getElementById("educParty").offsetHeight;
+ 
+      document.getElementById("particles-js").style.height = parseInt(educHeight) + 'px' ;
+      document.getElementById("education").style.height = parseInt(educHeight) + 'px' ;
       
+ 
     }
   
-    db.collection("organizations").get().then(function(snapshot){
-      snapshot.forEach(function(doc){
-        readOrganization(doc);
-          })
+  db.collection("organizations").onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    changes.forEach(change => {
+        if(change.type == "added"){
+          readOrganization(change.doc);
+        }else if(change.type == "removed"){
+          console.log("deleted hobby:" + change.doc.id);
+          let elemenList = document.getElementById("orgContainer");
+          let toremove = document.querySelector('[data-id=' + change.doc.id + ']');
+            elemenList.removeChild(toremove);
+      
+         
+        }
+    })
   });
-   
+
       function readOrganization(doc){
   
         let parent = document.getElementById("orgContainer");
@@ -135,7 +163,8 @@ var firebaseConfig = {
   
         let org = document.createElement("div");
         org.classList.add("org")
-        
+        org.setAttribute('data-id', doc.id);
+
         let img1 = document.createElement("img");
         let div2 = document.createElement("div");
         div2.setAttribute("class", "orgInfo");
@@ -186,12 +215,26 @@ var firebaseConfig = {
         
       }
     
+     
+    db.collection("others").onSnapshot(snapshot => {
+
       db.collection("others").get().then(function(snapshot){
         snapshot.forEach(function(doc){
          readAboutMe(doc);
             })
-    });
+    })
      
+
+      let changes = snapshot.docChanges();
+      changes.forEach(change => {
+          if(change.type == "modified"){
+            readAboutMe(doc);
+            // let toRemove = document.getElementById("intro");
+            // let parent = document.getElementById("intro");
+            // parent.removeChild(toRemove);
+          }
+      })
+    });
         function readAboutMe(doc){
     
           let parent = document.getElementById("intro");
@@ -321,38 +364,35 @@ var firebaseConfig = {
           
         }
 
-      //   db.collection("hobbies").get().then(function(snapshot){
-      //     snapshot.forEach(function(doc){
-      //       readHobbies(doc);
-      //         })
-      // });
-       
-      let hobbyList = document.getElementById("hobbiesContainer");
-
       db.collection("hobbies").onSnapshot(snapshot => {
         let changes = snapshot.docChanges();
         changes.forEach(change => {
             if(change.type == "added"){
-                readHobbies(change.doc);
+              console.log("added hobby:" + change.doc.id);
+              readHobbies(change.doc);
+                
             }else if(change.type == "removed"){
               // console.log("remove hobby: " + change.doc.id);
-              //   let div = hobbyList.querySelector('[data-id=' + change.doc.id + ']');
-              //   hobbyList.removeChild(div);
+              console.log("deleted hobby:" + change.doc.id);
+              let hobbyList = document.getElementById("hobbiesContainer");
+                let toremove = document.querySelector('[data-id=' + change.doc.id + ']');
+                hobbyList.removeChild(toremove);
               // readHobbies(change.doc);
-              deleteHobby(change.doc.id);
+              // deleteHobby(change.doc.id);
              
             }
         })
     })
 
           function readHobbies(doc){
-      
+            let hobbyList = document.getElementById("hobbiesContainer");
             // let parent = document.getElementById("hobbiesContainer");
             let data = doc.data();
             
             let hobby= document.createElement("div");
             hobby.classList.add("hobby")
-            
+            hobby.setAttribute('data-id', doc.id);
+
             let div1 = document.createElement("div");
             div1.classList.add("hobbiesIcons")
             let i1 = document.createElement("i");
@@ -397,12 +437,28 @@ var firebaseConfig = {
          
           }
 
-        db.collection("works").get().then(function(snapshot){
-            snapshot.forEach(function(doc){
-              readProjects(doc);
-                })
-        });
+        // db.collection("works").get().then(function(snapshot){
+        //     snapshot.forEach(function(doc){
+        //       readProjects(doc);
+        //         })
+        // });
          
+        db.collection("works").onSnapshot(snapshot => {
+          let changes = snapshot.docChanges();
+          changes.forEach(change => {
+              if(change.type == "added"){
+                readProjects(change.doc);
+              }else if(change.type == "removed"){
+                console.log("deleted hobby:" + change.doc.id);
+                let elemenList = document.getElementById("projectsContainer");
+                let toremove = document.querySelector('[data-id=' + change.doc.id + ']');
+                  elemenList.removeChild(toremove);
+            
+               
+              }
+          })
+        });
+
             function readProjects(doc){
         
               let parent = document.getElementById("projectsContainer");
@@ -410,7 +466,8 @@ var firebaseConfig = {
               
               let project= document.createElement("div");
               project.classList.add("project")
-              
+              project.setAttribute('data-id', doc.id);
+
               let img = document.createElement("img")
               let span = document.createElement("span")
               span.setAttribute("id", "projectName")
@@ -542,6 +599,7 @@ var firebaseConfig = {
       var yearStart = document.getElementById("yearStart2").value;
       var endYearvar = document.getElementById("yearEnd2").value;
       var award2 = document.getElementById("award2").value;
+      
       db.collection("educations").add({
         school: name,
         degree: degree,
@@ -549,7 +607,7 @@ var firebaseConfig = {
         endYear: endYearvar,
         award: award2
         })
-  
+        
     .then(function(docRef) {
         console.log("School added with ID: ", docRef.id);
     })

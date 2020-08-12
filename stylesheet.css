@@ -238,14 +238,15 @@ body {
  /* background-color: rgba(185, , 242, 0.75); */
   /* position: relative; */
   color: black;
-  min-height: fit-content;
+  /* min-height: fit-content; */
+  height: auto;
 }
 
 
 #particles-js{
   z-index: -10;
   /* height: fit-content; */
-  height: 100%;
+  height: auto;
 }
 
 .sectionContainer{
@@ -315,7 +316,7 @@ body {
   background: url(img/orgBg.png) no-repeat center fixed;
   background-size: cover;
   padding-top: 60px;
-  widg
+
 }
 
 #organizations img{

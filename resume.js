@@ -96,6 +96,10 @@ var firebaseConfig = {
       school.appendChild(div2)
       console.log(div2)
       parent.appendChild(school)
+      let educHeight = document.getElementById("educParty").offsetHeight;
+ 
+      document.getElementById("particles-js").style.height = parseInt(educHeight) + 'px' ;
+      document.getElementById("education").style.height = parseInt(educHeight) + 'px' ;
       
     }
   
