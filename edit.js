@@ -215,26 +215,13 @@ db.collection("educations").onSnapshot(snapshot => {
         
       }
     
-     
-    db.collection("others").onSnapshot(snapshot => {
-
+    
       db.collection("others").get().then(function(snapshot){
         snapshot.forEach(function(doc){
          readAboutMe(doc);
             })
     })
-     
 
-      let changes = snapshot.docChanges();
-      changes.forEach(change => {
-          if(change.type == "modified"){
-            readAboutMe(doc);
-            // let toRemove = document.getElementById("intro");
-            // let parent = document.getElementById("intro");
-            // parent.removeChild(toRemove);
-          }
-      })
-    });
         function readAboutMe(doc){
     
           let parent = document.getElementById("intro");
@@ -704,6 +691,7 @@ db.collection("educations").onSnapshot(snapshot => {
   
     .then(function(docRef) {
         console.log("About me updated with ID: ");
+        location.reload();
     })
     .catch(function(error) {
         console.error("Error updating document: ", error);
@@ -722,6 +710,7 @@ db.collection("educations").onSnapshot(snapshot => {
   
     .then(function(docRef) {
         console.log("Linkedinupdated");
+        location.reload();
     })
     .catch(function(error) {
         console.error("Error updating document: ", error);
@@ -740,6 +729,7 @@ db.collection("educations").onSnapshot(snapshot => {
   
     .then(function(docRef) {
         console.log("Github nupdated");
+        location.reload();
     })
     .catch(function(error) {
         console.error("Error updating document: ", error);
@@ -755,9 +745,10 @@ db.collection("educations").onSnapshot(snapshot => {
       db.collection("others").doc('intro').update({
         facebook: fb
       })
-  
+      
     .then(function(docRef) {
         console.log("Facebook nupdated");
+        location.reload();
     })
     .catch(function(error) {
         console.error("Error updating document: ", error);

@@ -233,3 +233,20 @@
 .login{
   background-color: #58a695;
 }
+.button.button.button-primary:hover {
+  background-color: #c4c4c4;
+  color: black;
+  border-color: #535454;
+}
+
+#emailBtn{
+  color: black;
+  font-family: 'Recursive', sans-serif;
+   font-weight: 700;
+   font-size: 1.5em;
+   
+}
+
+#emailBtn p{
+  color: black;
+}
