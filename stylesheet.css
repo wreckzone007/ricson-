@@ -561,3 +561,15 @@ button{
   margin: 0 auto;
   margin-top: -37px;
 }
+
+#emailBtn{
+  color: black;
+  font-family: 'Recursive', sans-serif;
+   font-weight: 700;
+   font-size: 1.5em;
+   
+}
+
+#emailBtn p{
+  color: black;
+}
