@@ -33,6 +33,7 @@ var long;
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
+     
   } else { 
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
@@ -45,6 +46,7 @@ function showPosition(position) {
     lat =  position.coords.latitude;
     long = position.coords.longitude;
     console.log(lat + long)
+    initMap()
 }
         
       var map;
@@ -69,8 +71,8 @@ function showPosition(position) {
           }
         };
 
-          lat= 14.627178
-long= 121.099731
+//          lat= 14.627178
+//long= 121.099731
         var features = [
           {
               
@@ -93,7 +95,7 @@ long= 121.099731
         
     </script>
     <script defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcZUQLyd-BBsirvjvDJAmEypVZXCNamwM&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcZUQLyd-BBsirvjvDJAmEypVZXCNamwM">
     </script>
   </body>
 </html>
