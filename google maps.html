@@ -41,8 +41,10 @@ function getLocation() {
 function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
+    
     lat =  position.coords.latitude;
     long = position.coords.longitude;
+    console.log(lat + long)
 }
         
       var map;
